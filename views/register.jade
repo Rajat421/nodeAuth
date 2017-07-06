@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+    h2 Register
+    p Please register below to SignUp
+    ul.errors
+        if errors
+            each error,i in errors
+                li.alert.alert-danger #{error.msg}
+
+    form(method='post',action='/users/register',enctype='application/x-www-form-urlencoded')
+        .form-group
+            label Name
+            input.form-control(name='name',type='text',  placeholder='NAME')
+        .form-group
+            label Email
+            input.form-control(name='email' ,type='email', placeholder='EMAIL')
+        .form-group
+            label Username
+            input.form-control(name='username',type='text' , placeholder='USERNAME')
+        .form-group
+            label Password
+            input.form-control(name='password' ,type='password',placeholder='PASSWORD')
+        .form-group
+            label Confirm Password
+            input.form-control(name='password2',type='password' , placeholder='RE-TYPE PASSWORD')
+        input.btn.btn-default( name='submit',type='submit' ,value='Register')
